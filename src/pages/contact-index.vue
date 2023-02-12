@@ -1,8 +1,10 @@
 <template>
-  <div class="contact-index">
-    <h1>Contact Index</h1>
-    <ContactList @remove="removeContact" v-if="contacts" :contacts="contacts" />
-  </div>
+  <!-- <div class="contact-index"> -->
+  <!-- <h1>Contact Index</h1> -->
+  <RouterLink to="/contact/edit"><button>Add Contact</button> </RouterLink>
+  <ContactList @remove="removeContact" v-if="contacts" :contacts="contacts" />
+
+  <!-- </div> -->
 </template>
 
 <script>
@@ -20,7 +22,9 @@ export default {
   methods: {
     async removeContact(contactId) {
       await contactService.remove(contactId);
-      this.contacts = this.contacts.filter((contact) => contact._id !== contactId);
+      this.contacts = this.contacts.filter(
+        (contact) => contact._id !== contactId
+      );
     },
   },
   components: {

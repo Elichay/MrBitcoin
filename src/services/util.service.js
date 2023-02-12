@@ -3,6 +3,8 @@
 export const utilService = {
     makeId,
     getRandomInt,
+    getRandomIntInclusive,
+    generateRandomName,
 }
 
 function makeId() {
@@ -17,3 +19,16 @@ function getRandomInt(num1, num2) {
     var min = num1 <= num2 ? num1 : num2
     return Math.floor(Math.random() * (max - min)) + min
 }
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive
+  }
+
+
+  function generateRandomName() {
+    const names = ['Emma', 'Olivia', 'Ava', 'Isabella', 'Sophia', 'Charlotte', 'Mia', 'Amelia', 'Harper', 'Evelyn']
+    const randomIndex = Math.floor(Math.random() * names.length)
+    return names[randomIndex]
+  }

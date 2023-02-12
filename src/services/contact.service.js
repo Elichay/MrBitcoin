@@ -1,7 +1,7 @@
 'use strict'
 
 import { dbService } from './db.service.js'
-
+import { utilService } from './util.service.js'
 const KEY = 'contacts'
 
 export const contactService = {
@@ -38,8 +38,8 @@ async function save(contact) {
 
 function getEmptyContact() {
     return {
-        vendor: '',
-        speed: 0,
+        name: utilService.generateRandomName(),
+        score: utilService.getRandomIntInclusive(20, 100),
     }
 }
 

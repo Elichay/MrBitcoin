@@ -1,5 +1,5 @@
 <template>
-<h2>Transfer to:</h2>
+  <h2>Transfer to:</h2>
   <form @submit="transfer" v-if="contact" class="contact-edit">
     <input type="text" v-model="contact.name" />
     <input type="number" v-model="contact.score" />
@@ -17,16 +17,19 @@ export default {
   },
   async created() {
     const contactId = this.$route.params._id;
-    this.contact = await contactService.get(contactId);
-  },
-  methods:{
-    async transfer(){
-      
-      await contactService.save(this.contact)
-      console.log('transfered- move from user if sufficient funds')
-      this.$router.push('/contact')
+    if (contactId) {
+      this.contact = await contactService.get(contactId);
+    } else {
+      this.contact = contactService.getEmptyContact();
     }
-  }
+  },
+  methods: {
+    async transfer() {
+      await contactService.save(this.contact);
+      console.log("transfered- move from user if sufficient funds");
+      this.$router.push("/contact");
+    },
+  },
 };
 </script>
 
