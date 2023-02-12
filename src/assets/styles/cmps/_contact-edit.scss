@@ -1,0 +1,11 @@
+.contact-edit {
+    display: grid;
+    justify-items: start;
+    gap: 5px;
+    padding: 10px;
+    background-color: rgb(3, 142, 96);
+
+    button{
+        justify-self: end;
+    }
+}
