@@ -1,0 +1,9 @@
+.contact-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    background-color: rgb(56, 100, 56);
+    list-style: none; 
+    padding: 10px; 
+
+}
