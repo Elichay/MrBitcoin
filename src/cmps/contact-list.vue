@@ -1,6 +1,6 @@
 <template>
   <section>
-    <ul class="contact-list">
+    <TransitionGroup name="list" tag="ul" class="contact-list">
       <li
         class="contact-preview"
         v-for="contact in contacts"
@@ -12,12 +12,12 @@
             <button>Details</button>
           </RouterLink>
           <RouterLink :to="`/contact/edit/${contact._id}`">
-            <button>Transfer</button>
+            <button>Edit</button>
           </RouterLink>
           <button @click="onRemoveContact(contact._id)">x</button>
         </section>
       </li>
-    </ul>
+    </TransitionGroup>
   </section>
 </template>
 

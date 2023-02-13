@@ -1,9 +1,23 @@
 <template>
-  <h2>Transfer to:</h2>
-  <form @submit="transfer" v-if="contact" class="contact-edit">
-    <input type="text" v-model="contact.name" />
-    <input type="number" v-model="contact.score" />
-    <button>Transfer</button>
+  <h2>{{ getTitle }}</h2>
+  <form @submit.prevent="onSave" v-if="contact" class="contact-edit">
+    <input
+      type="text"
+      v-model="contact.name"
+      placeholder="Enter contact name..."
+    />
+    <!-- <input type="number" v-model="contact.score" /> -->
+    <input
+      type="text"
+      v-model="contact.phone"
+      placeholder="Enter contact phone..."
+    />
+    <input
+      type="text"
+      v-model="contact.email"
+      placeholder="Enter contact email..."
+    />
+    <button>{{ getTitle }}</button>
   </form>
 </template>
 
@@ -24,10 +38,14 @@ export default {
     }
   },
   methods: {
-    async transfer() {
+    async onSave() {
       await contactService.save(this.contact);
-      console.log("transfered- move from user if sufficient funds");
       this.$router.push("/contact");
+    },
+  },
+  computed: {
+    getTitle() {
+      return (this.contact._id ? "Edit" : "Add") + " Contact";
     },
   },
 };

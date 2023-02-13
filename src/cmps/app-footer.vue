@@ -1,6 +1,6 @@
 <template>
   <footer>
-  <p>&copy; Coffeerights</p>
+  <p>&copy; Coffeerights 2023</p>
 
   </footer>
 </template>

@@ -1,27 +1,32 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../pages/HomeView.vue'
-import contactIndex from '../pages/contact-index.vue'
-import contactDetails from '../pages/contact-details.vue'
-import contactEdit from '../pages/contact-edit.vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import HomePage from '../pages/home-page.vue'
+import ContactIndex from '../pages/contact-index.vue'
+import ContactDetails from '../pages/contact-details.vue'
+import ContactEdit from '../pages/contact-edit.vue'
+import StatsPage from '../pages/stats-page.vue'
 
 const routerOptions = {
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      component: HomeView
+      component: HomePage
     },
     {
       path: '/contact',
-      component: contactIndex
+      component: ContactIndex
     },
     {
       path: '/contact/:_id',
-      component: contactDetails
+      component: ContactDetails
     },
     {
       path: '/contact/edit/:_id?',
-      component: contactEdit
+      component: ContactEdit
+    },
+    {
+      path: '/stat',
+      component: StatsPage
     },
     {
       path: '/about',
