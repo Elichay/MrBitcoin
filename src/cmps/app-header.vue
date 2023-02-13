@@ -27,7 +27,6 @@ export default {
   async created() {
     this.rate = await bitcoinService.getRate();
     this.opRate = await (1/(bitcoinService.getRate())).toFixed(2);
-    console.log('this.rate', this.rate)
   }, 
 };
 </script>

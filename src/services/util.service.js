@@ -4,6 +4,7 @@ export const utilService = {
     makeId,
     getRandomInt,
     getRandomIntInclusive,
+    getRandomUppercaseLetter,
     generateRandomName,
 }
 
@@ -26,9 +27,21 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive
   }
 
+  function getRandomUppercaseLetter() {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    return letters[Math.floor(Math.random() * 26)]
+  }
 
   function generateRandomName() {
-    const names = ['Emma', 'Olivia', 'Ava', 'Isabella', 'Sophia', 'Charlotte', 'Mia', 'Amelia', 'Harper', 'Evelyn']
+    const names = [
+        "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Charlotte", "Mia", "Amelia", "Harper", "Evelyn",
+        "Abigail", "Emily", "Elizabeth", "Avery", "Sofia", "Ella", "Madison", "Scarlett", "Victoria", "Aria",
+        "Grace", "Chloe", "Noa", "Liam", "Yael", "Tal", "Eitan", "Adi", "Nir", "Lilach",
+        "Orly", "Alon", "Shirel", "Eyal", "Ido", "Omer", "Omri", "Niv", "Gal", "Gilad",
+        "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Charlotte", "Mia", "Amelia", "Harper", "Evelyn",
+        "Abigail", "Emily", "Elizabeth", "Avery", "Sofia", "Ella", "Madison", "Scarlett", "Victoria", "Aria",
+        "Grace", "Chloe", "Noa", "Liam", "Yael", "Tal", "Eitan", "Adi", "Nir", "Lilach"
+      ]
     const randomIndex = Math.floor(Math.random() * names.length)
     return names[randomIndex]
   }

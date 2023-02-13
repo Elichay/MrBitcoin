@@ -86,10 +86,9 @@ async function save(contact) {
 
 function getEmptyContact() {
     const rand = utilService.getRandomIntInclusive(1, 1000)
-    const contactName = utilService.generateRandomName()
+    const contactName = utilService.generateRandomName() + ' ' + utilService.getRandomUppercaseLetter() + '.'
     const contactScore = utilService.getRandomIntInclusive(20, 100)
     const phoneNum = '0'+ utilService.getRandomIntInclusive(10,99) + '-' + utilService.getRandomIntInclusive(100,999) + '-' + utilService.getRandomIntInclusive(1000,9999)
-    console.log('rand', rand)
     return {
         name: contactName,
         score: contactScore,
@@ -101,10 +100,11 @@ function getEmptyContact() {
 
 function _createDefaultContacts() {
     return [
-        _createContact('Udi', 50, '055-555-5553'),
-        _createContact('Fiubert', 73, '055-555-5554'),
-        _createContact('Hubert', 100, '055-555-5555'),
-        _createContact('Schubert', 100, '055-555-5556'),
+        _createContact('Udi U.', 50, '055-555-5553'),
+        _createContact('Fiubert F.', 73, '055-555-5554'),
+        _createContact('Hubert H.', 100, '055-555-5555'),
+        _createContact('Schubert S.', 100, '055-555-5556'),
+        ...Array.from({length: 16}, (_, i) => getEmptyContact())
     ]
 }
 

@@ -23,6 +23,7 @@
 
 <script>
 import { contactService } from "@/services/contact.service.js";
+import { showErrorMsg, showSuccessMsg } from "@/services/eventBus.service.js";
 export default {
   data() {
     return {
@@ -39,8 +40,18 @@ export default {
   },
   methods: {
     async onSave() {
-      await contactService.save(this.contact);
-      this.$router.push("/contact");
+      // await contactService.save(this.contact);
+      // this.$router.push("/contact");
+      try {
+        await this.$store.dispatch({
+          type: "saveContact",
+          contact: this.contact,
+        });
+        showSuccessMsg("Contact saved");
+        this.$router.push("/contact");
+      } catch (err) {
+        showErrorMsg("Cannot save contact");
+      }
     },
   },
   computed: {
