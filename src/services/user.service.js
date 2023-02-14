@@ -1,5 +1,7 @@
 'use strict'
 import { storageService } from './storage.service.js'
+import { contactService } from './contact.service.js'
+ 
 
 const KEY = 'user'
 
@@ -32,10 +34,11 @@ function getTransactions() {
     })
 }
 
-function transferFunds(contact, amount) {
+async function transferFunds(contact, amount) {
     const user = storageService.load(KEY)
     user.balance -= +amount
     if (!user.transactions) user.transactions = []
+
     user.transactions.unshift({
         toId: contact._id,
         to: contact.name,
@@ -43,6 +46,10 @@ function transferFunds(contact, amount) {
         amount
     })
     storageService.save(KEY, user)
+
+    contact.score += +amount
+    contactService.save(contact)
+
 }
 
 
