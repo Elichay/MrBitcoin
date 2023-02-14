@@ -4,6 +4,7 @@ import ContactIndex from '../pages/contact-index.vue'
 import ContactDetails from '../pages/contact-details.vue'
 import ContactEdit from '../pages/contact-edit.vue'
 import StatsPage from '../pages/stats-page.vue'
+import LoginPage from '../pages/login-page.vue'
 
 const routerOptions = {
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,10 @@ const routerOptions = {
     {
       path: '/stat',
       component: StatsPage
+    },
+    {
+      path: '/login',
+      component: LoginPage
     },
     {
       path: '/about',

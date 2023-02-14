@@ -9,4 +9,19 @@ header {
     a {
         margin-inline-start: 1em;
     }
+
+
+    .logo-container {
+        .logo {}
+
+        .brand-name {
+            font-family: ubuntu-bold;
+            font-weight: 700;
+            font-size: 2rem;
+            color: $clr-brand;
+            padding-left: 0.5em;
+        }
+
+
+    }
 }
