@@ -16,13 +16,16 @@ export const myStore = createStore({
         },
     },
     mutations: {
-        changeCount({count}, {diff}) {
-            count += diff
+        // changeCount({count}, {diff}) {
+        //     count += diff
+        // },
+        changeCount(state, payload) {
+            state.count += payload.by
         },
     },
     actions: {
         incrementAsync(context, payload) {
-            console.log('context', context)
+            // console.log('context', context)
             setTimeout(() => {
                 context.commit({ type: 'changeCount', by: payload.by })
             }, 2500)
@@ -35,10 +38,8 @@ export const myStore = createStore({
 })
 
 myStore.subscribe((cmd, state) => {
-    console.log('**** Store state changed: ****')
-    console.log('Command:', cmd.payload)
+    console.log('* Store state* Command:', cmd.payload)
     console.log('storeState:\n', state)
-    console.log('*******************************')
 })
 
 export default myStore

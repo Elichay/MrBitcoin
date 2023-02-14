@@ -60,16 +60,15 @@ function _sort(arr) {
     }
 }
 
-async function query() {
+async function query(filterBy) {
     var contacts = await dbService.query(KEY)
-
-    // console.log(contacts)
-    if (!contacts || !contacts.length) {
-        contacts = _createDefaultContacts()
-        await dbService.insert(KEY, contacts)
+    if (filterBy) {
+        const regex = new RegExp(filterBy, 'i')
+        contacts = contacts.filter(contact => regex.test(contact.name))
     }
     return contacts
 }
+
 
 async function get(id) {
     return await dbService.get(KEY, id)

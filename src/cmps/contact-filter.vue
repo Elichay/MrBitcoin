@@ -1,7 +1,7 @@
 <template>
   <div class="contact-filter">
     <p>Search Contact:</p>
-    <input @input="onFilter" type="text" v-model="filterBy.name" placeholder="Search by name" />
+    <input @input="onFilter" type="text" v-model="filterBy" placeholder="Search by name" />
     <!-- <input type="text" v-model="filterBy.score" placeholder="Search by score" /> -->
   </div>
 </template>
@@ -10,9 +10,10 @@
 export default {
   data() {
     return {
-      filterBy: {
-        name: '',
-      },
+      filterBy: '',
+      // filterBy: {
+      //   name: '',
+      // },
     }
   },
     methods: {
