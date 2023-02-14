@@ -2,9 +2,6 @@
 
     grid-template-columns: 1fr 1fr;
 
-
-
-
     .logo-home {
         padding: 80px;
         justify-items: center;
@@ -27,6 +24,33 @@
             font-size: 4rem;
             color: $clr-brand;
             padding-left: 0.5em;
+        }
+    }
+
+    .right-home{
+        padding: 2rem;
+        align-items: center;
+        
+        fieldset{
+            padding: 4rem;
+            height: 15rem;
+            align-items: center;
+            justify-items: center;
+
+            h2{
+                font-family: ubuntu-bold;
+                font-weight: 700;
+                font-size: 2rem;
+                color: $clr-brand;
+                padding-bottom: 1rem;
+            }
+            h3{
+                font-family: ubuntu-bold;
+                font-weight: 700;
+                font-size: 1.5rem;
+                color: $clr-brand;
+                padding-bottom: 1rem;
+            }
         }
     }
 }

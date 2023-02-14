@@ -9,15 +9,16 @@
       />
       <h1 class="brand-name">Mr. BitCoin</h1>
     </div>
-    <div class="right-home">
-      <div v-if="user" class="user-data">
+    <div class="right-home grid">
+      <fieldset v-if="user" class="user-data grid">
         <h2>Welcome {{ user.name }}</h2>
         <h3>Your balance: {{ user.balance }}₿</h3>
-      </div>
-      <div v-else class="user-login">
-      <h2>Please Log in</h2>
-      <RouterLink to="/login">Login</RouterLink>
-      </div>
+        <!-- <button @click="onLogOut">Log Out</button> -->
+      </fieldset>
+      <fieldset v-else class="user-login grid">
+        <h2>Please Log in</h2>
+        <RouterLink to="/login">Login</RouterLink>
+      </fieldset>
     </div>
   </section>
 </template>
@@ -43,6 +44,9 @@ export default {
     goToAbout() {
       this.$router.push("/about");
     },
+    onLogOut(){
+      localStorage.removeItem('user');
+    }
   },
 };
 </script>

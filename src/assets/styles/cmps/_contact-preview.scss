@@ -1,4 +1,57 @@
-.contact-preview{
-    background-color: rgb(35, 245, 144);
+.contact-preview {
+    background-color: $clr-bg-light;
     padding: 10px;
+
+    grid-template-rows: auto auto auto;
+
+
+    .remove-contact {
+        justify-self: end;
+        
+        &:hover {
+            transform: rotate(45deg);
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
+    .preview-container {
+        justify-self: center;
+        height: 108px;
+        grid:
+            "contact-preview-name contact-preview-img" 1fr "contact-preview-name contact-preview-img" 1fr "contact-preview-score contact-preview-img" 1fr / 1fr 1fr;
+
+
+
+        .contact-preview-name {
+            grid-area: contact-preview-name;
+
+        }
+
+        .contact-preview-img {
+            grid-area: contact-preview-img;
+        }
+
+        .contact-preview-score {
+            grid-area: contact-preview-score;
+        }
+    }
+
+    .actions {
+        .details {
+            &:hover {
+                color: $clr-text-light;
+                background-color: #34b15e;
+            }
+        }
+
+        .edit {
+            &:hover {
+                color: $clr-text-light;
+                background-color: #34b15e;
+            }
+        }
+
+        // grid-area: actions; 
+    }
+
 }

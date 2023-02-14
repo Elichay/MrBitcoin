@@ -1,13 +1,103 @@
-.contact-details{
-    display: grid;
+.contact-details {
     padding: 10px;
-    background-color: rgb(50, 216, 216);
+    background-color: #2a8348;
+    max-height: calc(90vh - 16rem - 10px);
     margin-block-start: 10px;
 
 
-a{
-    justify-self: end;
-}
+    .contact-container {
+        padding-right: 75px;
+        padding-left: 75px;
+        max-height: inherit;
+        grid:
+            "name img" 1fr "score img" 1fr "phone img" 1fr "email img" 1fr / 1fr 1fr;
+        gap: 8px;
+
+        // justify-items: center;
+        align-items: center;
+
+
+        .contact-name {
+            grid-area: name;
+        }
+
+        .contact-score {
+            grid-area: score;
+        }
+
+        .contact-phone {
+            grid-area: phone;
+        }
+
+        .contact-email {
+            grid-area: email;
+        }
+
+        .contact-img {
+            grid-area: img;
+            width: 60%;
+            height: 100%;
+
+        }
+
+
+
+
+    }
+
+
+    .transfer-container {
+        background-color: $clr-bg-light;
+        justify-content: center;
+
+        .transfer-btc {
+            padding-right: 0.5rem;
+        }
+
+        input {
+            background-color: $clr-bg-secondary;
+            border: none;
+            color: $clr-text-primary;
+            padding-left: 0.5rem;
+            max-width: 5rem;
+        }
+
+        .transfer-coin{
+            padding-left: 0.5rem;   
+        }
+
+        .transfer-btn{
+                color: $clr-text-secondary;
+                border: 0;
+                border-radius: 12px;
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+                background-color: $clr-bg-secondary;
+                margin: 0.5rem;
+              
+                &:hover {
+                    color:$clr-text-light;
+                    background-color: #34b15e;
+                    // font-size: 1rem;
+                }
+              }
+        
+    }
+
+
+
+    a {
+        justify-self: end;
+
+        &:hover {
+            color: $clr-text-light;
+            transform: translate(-4px, 0);
+            
+        }
+    }
 
 
 }

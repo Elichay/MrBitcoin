@@ -1,6 +1,6 @@
 <template>
-  <h1>Contact Details:</h1>
-  <div v-if="contact" class="contact-details">
+  <!-- <h1>Contact Details:</h1> -->
+  <section v-if="contact" class="contact-details grid">
     <ContactProfile class="contact-profile" :contact="contact" />
 
     <TransferFunds
@@ -13,7 +13,7 @@
       <button>Back</button>
     </RouterLink>
     
-  </div>
+  </section>
 
   <TransactionList v-if="contact && transactions" :transactions="filteredTransactions" />
 </template>

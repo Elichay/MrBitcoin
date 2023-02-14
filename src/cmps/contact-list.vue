@@ -2,19 +2,19 @@
   <section>
     <TransitionGroup name="list" tag="ul" class="contact-list">
       <li
-        class="contact-preview"
+        class="contact-preview grid"
         v-for="contact in contacts"
         :key="contact._id"
       >
+          <button class="remove-contact" @click="onRemoveContact(contact._id)">x</button>
         <ContactPreview :contact="contact" />
-        <section class="actions">
+        <section class="actions flex justify-between">
           <RouterLink :to="`/contact/${contact._id}`">
-            <button>Details</button>
+            <button class="details">Details</button>
           </RouterLink>
           <RouterLink :to="`/contact/edit/${contact._id}`">
-            <button>Edit</button>
+            <button class="edit">Edit</button>
           </RouterLink>
-          <button @click="onRemoveContact(contact._id)">x</button>
         </section>
       </li>
     </TransitionGroup>

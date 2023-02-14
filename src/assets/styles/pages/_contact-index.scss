@@ -1,0 +1,21 @@
+.contacts-actions{
+    .add-contact{
+        color: $clr-text-secondary;
+        border: 0;
+        border-radius: 12px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        background-color: $clr-bg-secondary;
+        margin: 0.5rem;
+      
+        &:hover {
+            color:$clr-text-light;
+            background-color: #34b15e;
+            // font-size: 1rem;
+        }
+      }
+
+}

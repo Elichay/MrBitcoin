@@ -1,15 +1,15 @@
 <template>
-  <div class="transfer-container">
+  <fieldset class="transfer-container grid">
     <h3 class="transfer-header">Transfer Funds to: {{ contact.name }}</h3>
     <div class="transfer-txt">
       <p>Enter the amount you would like to transfer.</p>
     </div>
     <form @submit.prevent="transfer" class="transfer-form">
       <div>
-        <label for="amount" class="transfer-label">Amount</label>
-        <div class="">
-          <span class=""> ₿ </span>
-        </div>
+        <label for="amount" class="transfer-label">Amount:</label>
+        <div class="flex">
+          <span class="transfer-btc">BTC</span>
+        
         <input
           type="text"
           name="amount"
@@ -21,12 +21,15 @@
           aria-describedby="price-currency"
         />
         <div class="">
-          <span class="" id="price-currency"> BTC </span>
+          <span class="transfer-coin">₿</span>
         </div>
+        </div>
+        
+
       </div>
       <button type="submit" class="transfer-btn">Send</button>
     </form>
-  </div>
+  </fieldset>
 </template>
 
 <script>

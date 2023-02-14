@@ -3,9 +3,9 @@
     align-items: center;
     gap: 10px;
     padding: 10px;
-    background-color: rgb(44, 161, 122);
+    background-color: $clr-brand;
 
     p{
-        color: rgb(234, 234, 234);
+        color:$clr-text-light;
     };
 }
