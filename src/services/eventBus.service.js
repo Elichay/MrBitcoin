@@ -19,7 +19,7 @@ function createEventEmitter(defaultHandler = null){
 export const eventBus = createEventEmitter()
 
 export function showUserMsg(msg) {
-    eventBus.emit('show-msg', msg)
+    eventBus.emit('user-msg', msg)
 }
 
 export function showSuccessMsg(txt) {

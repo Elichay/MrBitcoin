@@ -62,6 +62,10 @@ function _sort(arr) {
 
 async function query(filterBy) {
     var contacts = await dbService.query(KEY)
+    if (!contacts || !contacts.length) {
+        contacts = _createDefaultContacts()
+        await dbService.insert(KEY, contacts)
+    }
     if (filterBy) {
         const regex = new RegExp(filterBy, 'i')
         contacts = contacts.filter(contact => regex.test(contact.name))
@@ -87,7 +91,7 @@ function getEmptyContact() {
     const rand = utilService.getRandomIntInclusive(1, 1000)
     const contactName = utilService.generateRandomName() + ' ' + utilService.getRandomUppercaseLetter() + '.'
     const contactScore = utilService.getRandomIntInclusive(20, 100)
-    const phoneNum = '0'+ utilService.getRandomIntInclusive(10,99) + '-' + utilService.getRandomIntInclusive(100,999) + '-' + utilService.getRandomIntInclusive(1000,9999)
+    const phoneNum = '0' + utilService.getRandomIntInclusive(10, 99) + '-' + utilService.getRandomIntInclusive(100, 999) + '-' + utilService.getRandomIntInclusive(1000, 9999)
     return {
         name: contactName,
         score: contactScore,
@@ -103,7 +107,7 @@ function _createDefaultContacts() {
         _createContact('Fiubert F.', 73, '055-555-5554'),
         _createContact('Hubert H.', 100, '055-555-5555'),
         _createContact('Schubert S.', 100, '055-555-5556'),
-        ...Array.from({length: 16}, (_, i) => getEmptyContact())
+        ...Array.from({ length: 16 }, (_, i) => getEmptyContact())
     ]
 }
 
