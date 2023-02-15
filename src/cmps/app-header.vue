@@ -15,7 +15,7 @@
   </header>
   <header>
     <div class="user-header">
-      <div v-if="user.name" class="user-name flex">
+      <div v-if="user" class="user-name flex">
         <p><span>User: </span><span>{{ user.name }}</span></p>
         <p><span>, Balance: </span><span>{{user.balance}}₿</span></p>
       </div>
@@ -43,16 +43,16 @@ export default {
   async created() {
     this.rate = await bitcoinService.getRate();
     this.opRate = await (1 / bitcoinService.getRate()).toFixed(2);
+      this.user = await userService.getUser();
     
     eventBus.on("user-update", async () => {
       this.user = await userService.getUser();
     });
   },
-    async mounted() {
-    this.loadingUser = true;
-    this.user = await userService.getUser();
-    this.loadingUser = false;
-  },
+  //   async mounted() {
+  //   this.loadingUser = true;
+  //   this.loadingUser = false;
+  // },
 };
 </script>
 
